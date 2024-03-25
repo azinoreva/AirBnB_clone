@@ -4,8 +4,7 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """
-    class that inherits from base model and gives details about the place
+    """class that inherits from base model and gives details about the place
     Public class attributes:
         city_id: string - empty string: it will be the City.id
         user_id: string - empty string: it will be the User.id
@@ -17,9 +16,7 @@ class Place(BaseModel):
         price_by_night: integer - 0
         latitude: float - 0.0
         longitude: float - 0.0
-        amenity_ids: list of string - empty list: it will be the list of Amenity.id later
-
-    """
+        amenity_ids: list of string - empty list"""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.city_id = kwargs.get('city_id', '')
@@ -33,4 +30,3 @@ class Place(BaseModel):
         self.latitude = kwargs.get('latitude', 0.0)
         self.longitude = kwargs.get('longitude', 0.0)
         self.amenity_ids = kwargs.get('amenity_ids', [])
-

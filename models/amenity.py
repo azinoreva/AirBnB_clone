@@ -2,6 +2,7 @@
 
 from models.base_model import BaseModel
 
+
 class Amenity(BaseModel):
     """
     class that inherits from basemodel and sets amenities available

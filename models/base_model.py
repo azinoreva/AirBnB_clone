@@ -3,18 +3,22 @@
 import uuid
 from datetime import datetime
 
+
 class BaseModel:
     """
-    This model serves as the base for all other models
-    Public instance attributes: id - Id from uuid4(), created at and updated at from datetime() 
+    This model serves as the base models
+    Public instance attributes:
+    id - Id from uuid4(),
+    created at and updated at from datetime
     """
     def __init__(self, *args, **kwargs):
         if kwargs:
             for key, value in kwargs.items():
                 if key == '__class__':
                     continue
+                formats = "%Y-%m-%dT%H:%M:%S.%f"
                 if key == 'created_at' or key == 'updated_at':
-                    setattr(self, key, datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+                    setattr(self, key, datetime.strptime(value, formats))
                 else:
                     setattr(self, key, value)
         else:
@@ -35,8 +39,6 @@ class BaseModel:
         return obj_dict
 
     def __str__(self):
+        """Arranges the presentation of the dictionary
         """
-        This arranges the format of the presentation of the strings including the dictionary when called
-        """
-        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__)
-
+        return f"{type(self).__name__,} ({self.id}) {self.__dict__}"

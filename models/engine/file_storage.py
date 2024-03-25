@@ -8,11 +8,12 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+
 class FileStorage:
     """
-    The FileStorage Class is the class that serializes and deserializes all the files in json format
-    Private class attributes: file_path - path for file  
-    objects - A dictionary that temporarily stores the deserialized files or files to be serialized
+    The FileStorage Class serializes and deserializes
+    Private class attributes: file_path - path for file
+    objects - A dictionary that temporarily stores dict
 
     """
     __file_path = "file.json"
@@ -38,13 +39,13 @@ class FileStorage:
         serialized_objects = {}
         for key, obj in self.__objects.items():
             serialized_objects[key] = obj.to_dict()
-        
+
         with open(self.__file_path, 'w') as file:
             json.dump(serialized_objects, file)
 
     def reload(self):
         """
-        deserializes the JSON file to __objects (only if the JSON file (__file_path) exists ; otherwise, do nothing. If the file doesn’t exist, no exception should be raised)
+        deserializes the JSON file to __objects
         """
         if exists(self.__file_path):
             with open(self.__file_path, 'r') as file:
@@ -65,4 +66,3 @@ class FileStorage:
                         # Handle other classes if needed
                         continue
                     self.__objects[key] = obj
-

@@ -2,9 +2,10 @@
 
 from models.base_model import BaseModel
 
+
 class User(BaseModel):
     """
-    A class User that inherits from basemodel and is designed to collect and pass user cred to the base and to storage
+    A class User that inherits from basemodel
     Public class attributes:
         email: string - empty string
         password: string - empty string
@@ -20,8 +21,7 @@ class User(BaseModel):
         self.last_name = kwargs.get('last_name', '')
 
     def to_dict(self):
-        """
-        set to a dictionary which would later be serialized 
+        """ set to a dictionary which would later be serialized
         """
         obj_dict = super().to_dict()
         obj_dict['email'] = self.email
@@ -29,4 +29,3 @@ class User(BaseModel):
         obj_dict['first_name'] = self.first_name
         obj_dict['last_name'] = self.last_name
         return obj_dict
-

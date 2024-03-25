@@ -2,6 +2,7 @@
 
 from models.base_model import BaseModel
 
+
 class Review(BaseModel):
     """
     class that inherits from base class and takes reviews
@@ -15,4 +16,3 @@ class Review(BaseModel):
         self.place_id = kwargs.get('place_id', '')
         self.user_id = kwargs.get('user_id', '')
         self.text = kwargs.get('text', '')
-

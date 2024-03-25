@@ -2,6 +2,7 @@
 
 from models.base_model import BaseModel
 
+
 class State(BaseModel):
     """
     class that inherit from BaseModel
@@ -10,5 +11,4 @@ class State(BaseModel):
     """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.name = kwargs.get('name', '')
-    
+        self.name = kwargs.get('name', '') 
